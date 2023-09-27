@@ -13,7 +13,8 @@ public class ArrayDeque<T> {
 
     private void doubleDeque() {
         T[] p = (T[]) new Object[items.length * 2];
-        System.arraycopy(items, (nextFirst + 1) % items.length, p, 0, items.length - nextFirst - 1);
+        System.arraycopy(items, (nextFirst + 1) % items.length, p, 0,
+                items.length - (nextFirst + 1) % items.length);
         System.arraycopy(items, 0, p, items.length - nextFirst - 1, nextLast);
         items = p;
         nextFirst = items.length - 1;
