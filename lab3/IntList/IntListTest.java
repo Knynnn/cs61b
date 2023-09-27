@@ -1,5 +1,4 @@
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class IntListTest {
@@ -64,6 +63,16 @@ public class IntListTest {
         IntList exp = IntList.of(1, 2, 3, 4, 5, 6);
         assertEquals(exp, IntList.catenate(A, B));
         assertEquals(IntList.of(1, 2, 3), A);
+    }
+
+    @Test
+    public void testReverse() {
+        IntList L = IntList.of(1, 2, 3);
+        IntList res = IntList.reverse(L);
+        assertEquals(IntList.of(3, 2, 1), res);
+        assertNotEquals(IntList.of(1, 2, 3), L);
+        IntList E = IntList.of();
+        assertEquals(IntList.reverse(E), null);
     }
 
     /** If you're running this from the command line, you'll need
