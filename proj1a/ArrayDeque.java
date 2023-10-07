@@ -3,7 +3,7 @@ public class ArrayDeque<T> {
     private int nextFirst;
     private int nextLast;
     private T[] items;
-    public static final int MIN_LENGTH = 16;
+    private static final int MIN_LENGTH = 16;
 
     public ArrayDeque() {
         items = (T[]) new Object[8];
@@ -33,7 +33,7 @@ public class ArrayDeque<T> {
     }
 
     private void usageDeque() {
-        if (items.length > 4 * size || items.length > MIN_LENGTH) {
+        if (items.length > 4 * size && items.length > MIN_LENGTH) {
             haltDeque();
         }
     }
