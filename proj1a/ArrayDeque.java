@@ -14,9 +14,16 @@ public class ArrayDeque<T> {
 
     private void doubleDeque() {
         T[] p = (T[]) new Object[items.length * 2];
-        System.arraycopy(items, (nextFirst + 1) % items.length, p, 0,
-                items.length - (nextFirst + 1) % items.length);
-        System.arraycopy(items, 0, p, items.length - nextFirst - 1, nextLast);
+        if (nextFirst + size >= items.length) {
+            System.arraycopy(items, (nextFirst + 1) % items.length, p, 0,
+                    items.length - (nextFirst + 1) % items.length);
+            System.arraycopy(items, 0, p, items.length - nextFirst - 1,
+                    size - (items.length - (nextFirst + 1) % items.length));
+        }
+        else {
+            System.arraycopy(items, (nextFirst + 1) % items.length, p, 0,
+                    size);
+        }
         items = p;
         nextFirst = items.length - 1;
         nextLast = size;
@@ -25,7 +32,7 @@ public class ArrayDeque<T> {
     private void haltDeque() {
         T[] p = (T[]) new Object[items.length / 2];
         System.arraycopy(items, (nextFirst + 1) % items.length, p, 0,
-                items.length - (nextFirst + 1) % items.length);
+                size );
         System.arraycopy(items, 0, p, items.length - nextFirst - 1, nextLast);
         items = p;
         nextFirst = items.length - 1;
