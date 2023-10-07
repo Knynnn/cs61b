@@ -1,4 +1,5 @@
 /** Performs some basic linked list tests. */
+
 public class ArrayDequeTest {
 
     /* Utility method for printing out empty checks. */
@@ -48,7 +49,10 @@ public class ArrayDequeTest {
 
         boolean passed = checkEmpty(true, ad1.isEmpty());
 
+
         ad1.addFirst("front");
+
+        passed = checkGet("front", ad1.get(0)) && passed;
 
         // The && operator is the same as "and" in Python.
         // It's a binary operator that returns true if both arguments true, and false otherwise.
@@ -63,12 +67,7 @@ public class ArrayDequeTest {
 
         passed = checkGet("front", ad1.get(0)) && passed;
 
-
         passed = checkGet("back", ad1.get(2)) && passed;
-
-        for(int i = 0; i < 10; i++) {
-            ad1.addLast("back");
-        }
 
         System.out.println("Printing out deque: ");
         ad1.printDeque();
