@@ -80,9 +80,9 @@ public class ArrayDeque<T> {
         if (isEmpty()) {
             return null;
         }
+        usageDeque();
         nextFirst = (nextFirst + 1) % items.length;
         size--;
-        usageDeque();
         return items[nextFirst];
     }
 
@@ -90,9 +90,9 @@ public class ArrayDeque<T> {
         if (isEmpty()) {
             return null;
         }
+        usageDeque();
         nextLast = (nextLast - 1 + items.length) % items.length;
         size--;
-        usageDeque();
         return items[nextLast];
     }
 
