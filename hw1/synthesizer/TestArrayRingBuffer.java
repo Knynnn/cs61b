@@ -1,8 +1,5 @@
 package synthesizer;
 import org.junit.Test;
-
-import java.util.Objects;
-
 import static org.junit.Assert.*;
 
 /** Tests the ArrayRingBuffer class.
@@ -19,7 +16,7 @@ public class TestArrayRingBuffer {
         assertEquals((Integer) 5, arb.peek());
         arb.enqueue(10);
         arb.enqueue(15);
-        for(int i : arb) {
+        for (int i : arb) {
             System.out.println(i);
         }
         assertEquals((Integer) 5, arb.dequeue());
